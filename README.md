@@ -2,7 +2,10 @@
 
 A Simple fullstack multi-role dashboard application for managing items and user accounts using Node.js, express.js, React.js and MYSQL.
 
-#Features :
+## Live Demo :
+https://simple-storage-deni2403.vercel.app/
+
+## Features :
 - Login (Express session)
 - Multirole User (Admin & User)
 - Add, Edit, Delete Product
