@@ -51,6 +51,6 @@ const Product = sequelize.define(
 User.hasMany(Product);
 Product.belongsTo(User, { foreignKey: 'userId' });
 
-await sequelize.sync();
+// await sequelize.sync();
 
 export default Product;

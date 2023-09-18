@@ -28,7 +28,7 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: ['http://localhost:5173', 'http://localhost:4173'],
+    origin: 'https://simple-storage-deni2403.vercel.app',
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
   }),

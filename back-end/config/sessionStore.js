@@ -7,5 +7,5 @@ const store = new SessionStore({
   db: sequelize,
 });
 
-store.sync();
+// store.sync();
 export default store;
