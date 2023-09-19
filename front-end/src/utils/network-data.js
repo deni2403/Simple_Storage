@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const BASE_URL = 'https://simple-storage-zeta.vercel.app';
 
+axios.defaults.withCredentials = true;
+
 async function login({ email, password }) {
   try {
     const response = await axios.post(`${BASE_URL}/login`, {
