@@ -21,6 +21,7 @@ app.use(
     store,
     cookie: {
       secure: 'auto',
+      maxAge: 600,
     },
   }),
 );
