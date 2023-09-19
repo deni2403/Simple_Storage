@@ -21,7 +21,6 @@ app.use(
     store,
     cookie: {
       secure: 'auto',
-      maxAge: 3600,
     },
   }),
 );
@@ -31,7 +30,14 @@ app.use(
     credentials: true,
     origin: process.env.ORIGIN,
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
-    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Cookie',
+      'Accept',
+      'Authorization',
+    ],
   }),
 );
 
