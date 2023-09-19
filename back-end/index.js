@@ -20,8 +20,7 @@ app.use(
     saveUninitialized: true,
     store,
     cookie: {
-      secure: 'true',
-      sameSite: 'none',
+      secure: 'auto',
     },
   }),
 );
@@ -32,7 +31,6 @@ app.use(
     origin: process.env.ORIGIN,
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'],
     allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
-    preflightContinue: true,
   }),
 );
 
