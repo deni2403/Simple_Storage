@@ -20,8 +20,7 @@ app.use(
     saveUninitialized: true,
     store,
     cookie: {
-      sameSite: 'none',
-      secure: 'true',
+      secure: 'auto',
     },
   }),
 );
