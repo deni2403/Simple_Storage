@@ -1,12 +1,10 @@
-import axios from 'axios';
+import cookieApiClient from './axios-instance';
 
-const BASE_URL = 'https://simple-storage-zeta.vercel.app';
-
-axios.defaults.withCredentials = true;
+const BASE_URL = import.meta.env.API_BASE_URL;
 
 async function login({ email, password }) {
   try {
-    const response = await axios.post(`${BASE_URL}/login`, {
+    const response = await cookieApiClient.post(`${BASE_URL}/login`, {
       email,
       password,
     });
@@ -18,7 +16,7 @@ async function login({ email, password }) {
 
 async function getUserLogged() {
   try {
-    const response = await axios.get(`${BASE_URL}/me`);
+    const response = await cookieApiClient.get(`${BASE_URL}/me`);
     return { error: false, data: response.data };
   } catch (error) {
     return { error, data: null };
@@ -27,7 +25,7 @@ async function getUserLogged() {
 
 async function logout() {
   try {
-    const response = await axios.delete(`${BASE_URL}/logout`);
+    const response = await cookieApiClient.delete(`${BASE_URL}/logout`);
     return response.data.msg;
   } catch (error) {
     return error;
@@ -38,7 +36,7 @@ async function logout() {
 
 async function getProducts() {
   try {
-    const response = await axios.get(`${BASE_URL}/products`);
+    const response = await cookieApiClient.get(`${BASE_URL}/products`);
     return { error: false, data: response.data };
   } catch (error) {
     return { error, data: null };
@@ -47,7 +45,7 @@ async function getProducts() {
 
 async function getProductByID(id) {
   try {
-    const response = await axios.get(`${BASE_URL}/products/${id}`);
+    const response = await cookieApiClient.get(`${BASE_URL}/products/${id}`);
     return { error: false, data: response.data };
   } catch (error) {
     return { error, data: null };
@@ -56,7 +54,7 @@ async function getProductByID(id) {
 
 async function addProduct({ productName, qty, price }) {
   try {
-    const response = await axios.post(`${BASE_URL}/products`, {
+    const response = await cookieApiClient.post(`${BASE_URL}/products`, {
       productName,
       qty,
       price,
@@ -69,7 +67,7 @@ async function addProduct({ productName, qty, price }) {
 
 async function updateProduct({ id, productName, qty, price }) {
   try {
-    const response = await axios.patch(`${BASE_URL}/products/${id}`, {
+    const response = await cookieApiClient.patch(`${BASE_URL}/products/${id}`, {
       productName,
       qty,
       price,
@@ -82,7 +80,7 @@ async function updateProduct({ id, productName, qty, price }) {
 
 async function deleteProduct(id) {
   try {
-    const response = await axios.delete(`${BASE_URL}/products/${id}`);
+    const response = await cookieApiClient.delete(`${BASE_URL}/products/${id}`);
     return { error: false, data: `(${response.status}) Data deleted` };
   } catch (error) {
     return { error, data: null };
@@ -93,7 +91,7 @@ async function deleteProduct(id) {
 
 async function getUsers() {
   try {
-    const response = await axios.get(`${BASE_URL}/users`);
+    const response = await cookieApiClient.get(`${BASE_URL}/users`);
     return { error: false, data: response.data };
   } catch (error) {
     return { error, data: null };
@@ -102,7 +100,7 @@ async function getUsers() {
 
 async function getUserById(id) {
   try {
-    const response = await axios.get(`${BASE_URL}/users/${id}`);
+    const response = await cookieApiClient.get(`${BASE_URL}/users/${id}`);
     return { error: false, data: response.data };
   } catch (error) {
     return { error, data: null };
@@ -111,7 +109,7 @@ async function getUserById(id) {
 
 async function addNewUser({ name, email, password, confPassword, role }) {
   try {
-    const response = await axios.post(`${BASE_URL}/users`, {
+    const response = await cookieApiClient.post(`${BASE_URL}/users`, {
       name,
       email,
       password,
@@ -126,7 +124,7 @@ async function addNewUser({ name, email, password, confPassword, role }) {
 
 async function updateUser({ id, name, email, password, confPassword, role }) {
   try {
-    const response = await axios.patch(`${BASE_URL}/users/${id}`, {
+    const response = await cookieApiClient.patch(`${BASE_URL}/users/${id}`, {
       name,
       email,
       password,
@@ -141,7 +139,7 @@ async function updateUser({ id, name, email, password, confPassword, role }) {
 
 async function deleteUser(id) {
   try {
-    const response = await axios.delete(`${BASE_URL}/users/${id}`);
+    const response = await cookieApiClient.delete(`${BASE_URL}/users/${id}`);
     return { error: false, data: `(${response.status}) User deleted` };
   } catch (error) {
     return { error, data: null };
